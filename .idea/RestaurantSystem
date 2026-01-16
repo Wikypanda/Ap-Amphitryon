@@ -1,0 +1,65 @@
+class RestaurantSystem {
+    // Storage
+    private val tables = mutableListOf<Table>()
+    private val masterDishes = mutableListOf<Dish>()
+    private val serviceMenu = mutableMapOf<ServiceType, MutableList<MenuOffering>>()
+    private val orders = mutableListOf<Order>()
+
+    // --- CHEF DE SALLE (Floor Manager) ---
+    fun addTable(number: Int, capacity: Int) {
+        if (capacity >= 2) tables.add(Table(number, capacity))
+    }
+
+    fun assignServerToTable(tableNumber: Int, serverName: String?) {
+        tables.find { it.number == tableNumber }?.assignedServer = serverName
+    }
+
+    fun displayTables() {
+        tables.forEach { println("Table ${it.number} (Cap: ${it.capacity}) - Server: ${it.assignedServer ?: "None"}") }
+    }
+
+    // --- CHEF CUISINIER (Head Chef) ---
+    fun createDish(id: Int, name: String, desc: String, cat: Category) {
+        masterDishes.add(Dish(id, name, desc, cat))
+    }
+
+    fun setServiceMenu(service: ServiceType, dishId: Int, price: Double, qty: Int) {
+        val dish = masterDishes.find { it.id == dishId } ?: return
+        val menu = serviceMenu.getOrPut(service) { mutableListOf() }
+        menu.add(MenuOffering(dish, price, qty))
+    }
+
+    fun displayChefReport(service: ServiceType) {
+        println("--- Report for $service ---")
+        serviceMenu[service]?.forEach {
+            println("${it.dish.name}: Available: ${it.quantityAvailable}, Sold: ${it.quantitySold}")
+        }
+    }
+
+    // --- SERVEURS (Waitstaff) ---
+    fun createOrder(tableNumber: Int): Order {
+        val newOrder = Order(tableNumber)
+        orders.add(newOrder)
+        return newOrder
+    }
+
+    fun addDishToOrder(order: Order, dish: Dish, notes: String, service: ServiceType) {
+        val offering = serviceMenu[service]?.find { it.dish.id == dish.id }
+        if (offering != null && offering.quantityAvailable > 0) {
+            order.items.add(OrderItem(dish, notes = notes))
+            offering.quantityAvailable--
+            offering.quantitySold++
+        } else {
+            println("Dish ${dish.name} is out of stock!")
+        }
+    }
+
+    fun updateDishStatus(order: Order, dishId: Int, newStatus: DishStatus) {
+        order.items.find { it.dish.id == dishId }?.status = newStatus
+    }
+
+    fun settlePayment(order: Order) {
+        order.isPaid = true
+        println("Order for Table ${order.tableNumber} has been paid.")
+    }
+}+

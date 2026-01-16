@@ -1,0 +1,32 @@
+fun main() {
+    val system = RestaurantSystem()
+
+    // 1. Setup Tables (Chef de Salle)
+    system.addTable(1, 2)
+    system.addTable(2, 4)
+    system.assignServerToTable(1, "Jean")
+
+    // 2. Setup Menu (Chef Cuisinier)
+    system.createDish(101, "Steak", "Grilled beef", Category.MAIN)
+    system.createDish(102, "Salad", "Fresh greens", Category.ENTREE)
+
+    // Propose dishes for Lunch
+    system.setServiceMenu(ServiceType.LUNCH, 101, 25.0, 10)
+    system.setServiceMenu(ServiceType.LUNCH, 102, 12.0, 5)
+
+    // 3. Take Order (Serveur)
+    val myOrder = system.createOrder(1)
+    // Get the steak dish reference
+    val steak = Dish(101, "Steak", "Grilled beef", Category.MAIN)
+
+    system.addDishToOrder(myOrder, steak, "1 saignant, 1 à point", ServiceType.LUNCH)
+
+    // Update status
+    system.updateDishStatus(myOrder, 101, DishStatus.SERVED)
+
+    // Payment
+    system.settlePayment(myOrder)
+
+    // 4. End of Service Report
+    system.displayChefReport(ServiceType.LUNCH)
+}

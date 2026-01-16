@@ -1,0 +1,38 @@
+import java.time.LocalDateTime
+
+enum class Category { ENTREE, MAIN, DESSERT }
+enum class DishStatus { ORDERED, SERVED, CLEARED }
+enum class ServiceType { LUNCH, DINNER }
+
+data class Dish(
+    val id: Int,
+    var name: String,
+    var description: String,
+    val category: Category
+)
+
+data class MenuOffering(
+    val dish: Dish,
+    var price: Double,
+    var quantityAvailable: Int,
+    var quantitySold: Int = 0
+)
+
+data class Table(
+    val number: Int,
+    var capacity: Int,
+    var assignedServer: String? = null
+)
+
+data class OrderItem(
+    val dish: Dish,
+    var status: DishStatus = DishStatus.ORDERED,
+    var notes: String = ""
+)
+
+data class Order(
+    val tableNumber: Int,
+    val timestamp: LocalDateTime = LocalDateTime.now(),
+    val items: MutableList<OrderItem> = mutableListOf(),
+    var isPaid: Boolean = false
+)
