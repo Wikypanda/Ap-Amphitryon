@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Amphitryon</string>
+    
+    <!-- Main Activity -->
+    <string name="welcome_title">Bienvenue sur Amphitryon</string>
+    <string name="select_role">Sélectionnez votre rôle</string>
+    <string name="role_chef_salle">Chef de Salle</string>
+    <string name="role_chef_cuisinier">Chef Cuisinier</string>
+    <string name="role_serveur">Serveur</string>
+    
+    <!-- Chef de Salle -->
+    <string name="chef_salle_title">Chef de Salle</string>
+    <string name="manage_tables">Gérer les Tables</string>
+    <string name="manage_assignments">Gérer les Affectations</string>
+    <string name="add_table">Ajouter une Table</string>
+    <string name="edit_table">Modifier la Table</string>
+    <string name="delete_table">Supprimer la Table</string>
+    <string name="assign_table">Affecter la Table</string>
+    <string name="table_number">Numéro de table</string>
+    <string name="number_of_seats">Nombre de places</string>
+    <string name="is_occupied">Occupée</string>
+    
+    <!-- Chef Cuisinier -->
+    <string name="chef_cuisinier_title">Chef Cuisinier</string>
+    <string name="manage_dishes">Gérer les Plats</string>
+    <string name="add_dish">Ajouter un Plat</string>
+    <string name="edit_dish">Modifier le Plat</string>
+    <string name="delete_dish">Supprimer le Plat</string>
+    <string name="dish_name">Nom du plat</string>
+    <string name="dish_description">Description</string>
+    <string name="dish_category">Catégorie</string>
+    <string name="base_price">Prix de base</string>
+    <string name="selling_price">Prix de vente</string>
+    <string name="available_quantity">Quantité disponible</string>
+    <string name="sold_quantity">Quantité vendue</string>
+    <string name="propose_for_service">Proposer pour le service</string>
+    
+    <!-- Serveur -->
+    <string name="serveur_title">Serveur</string>
+    <string name="manage_orders">Gérer les Commandes</string>
+    <string name="add_order">Ajouter une Commande</string>
+    <string name="edit_order">Modifier la Commande</string>
+    <string name="delete_order">Supprimer la Commande</string>
+    <string name="order_details">Détails de la Commande</string>
+    <string name="add_dish_to_order">Ajouter un plat</string>
+    <string name="mark_as_paid">Marquer comme payée</string>
+    <string name="additional_info">Informations complémentaires</string>
+    
+    <!-- Common -->
+    <string name="save">Enregistrer</string>
+    <string name="cancel">Annuler</string>
+    <string name="delete">Supprimer</string>
+    <string name="confirm">Confirmer</string>
+    <string name="service_lunch">Déjeuner</string>
+    <string name="service_dinner">Dîner</string>
+    <string name="category_starter">Entrée</string>
+    <string name="category_main">Plat Principal</string>
+    <string name="category_dessert">Dessert</string>
+    <string name="state_ordered">Commandé</string>
+    <string name="state_served">Servi</string>
+    <string name="state_cleared">Débarrassé</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+</resources>
