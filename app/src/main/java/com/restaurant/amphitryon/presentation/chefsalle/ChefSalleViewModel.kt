@@ -3,8 +3,10 @@ package com.restaurant.amphitryon.presentation.chefsalle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.restaurant.amphitryon.data.local.database.entities.AffectationEntity
+import com.restaurant.amphitryon.data.local.database.entities.ServeurEntity
 import com.restaurant.amphitryon.data.local.database.entities.TableEntity
 import com.restaurant.amphitryon.data.repository.AffectationRepository
+import com.restaurant.amphitryon.data.repository.ServeurRepository
 import com.restaurant.amphitryon.data.repository.TableRepository
 import com.restaurant.amphitryon.domain.model.Service
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +19,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ChefSalleViewModel @Inject constructor(
     private val tableRepository: TableRepository,
-    private val affectationRepository: AffectationRepository
+    private val affectationRepository: AffectationRepository,
+    private val serveurRepository: ServeurRepository
 ) : ViewModel() {
     
     private val _tables = MutableStateFlow<List<TableEntity>>(emptyList())
@@ -26,8 +29,12 @@ class ChefSalleViewModel @Inject constructor(
     private val _affectations = MutableStateFlow<List<AffectationEntity>>(emptyList())
     val affectations: StateFlow<List<AffectationEntity>> = _affectations.asStateFlow()
     
+    private val _serveurs = MutableStateFlow<List<ServeurEntity>>(emptyList())
+    val serveurs: StateFlow<List<ServeurEntity>> = _serveurs.asStateFlow()
+
     init {
         loadTables()
+        loadServeurs()
     }
     
     private fun loadTables() {
@@ -38,6 +45,14 @@ class ChefSalleViewModel @Inject constructor(
         }
     }
     
+    private fun loadServeurs() {
+        viewModelScope.launch {
+            serveurRepository.getAllServeurs().collect { serveurList ->
+                _serveurs.value = serveurList
+            }
+        }
+    }
+
     fun loadAffectationsForService(date: String, service: Service) {
         viewModelScope.launch {
             affectationRepository.getAffectationsForService(date, service).collect { affectationList ->
