@@ -1,6 +1,9 @@
 # Gradle files
 .gradle/
 build/
+.caches/
+.daemon/
+.tmp/
 local.properties
 *.iml
 /.idea/workspace.xml
@@ -47,6 +50,23 @@ captures/
 # Keystore files
 *.jks
 *.keystore
+
+# Gradle cache and wrapper
+caches/
+daemon/
+wrapper/dists/
+
+# Native directory
+native/
+
+# Android SDK
+jdks/
+
+# Temp gradle extensions
+.tmp/
+
+# ap-amphitryon subdirectory
+ap-amphitryon/.git/
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild

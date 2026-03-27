@@ -10,39 +10,58 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvTableNumero"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Table 1"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvTableNumero"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Table 1"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvServeurNom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Serveur: Marie D."
+                    android:textSize="14sp" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tvServeurNom"
+                android:id="@+id/tvService"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Serveur: Marie D."
-                android:textSize="14sp" />
+                android:text="Déjeuner"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/md_theme_primary" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvService"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Déjeuner"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/md_theme_primary" />
+        <ImageButton
+            android:id="@+id/btnDeleteAffectation"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Supprimer l'affectation"
+            android:src="@android:drawable/ic_menu_delete"
+            app:tint="@android:color/holo_red_dark" />
 
     </LinearLayout>
 

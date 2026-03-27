@@ -5,10 +5,30 @@
     android:orientation="vertical"
     android:padding="24dp">
 
+    <!-- Sélection de la table (visible seulement en modification) -->
+    <TextView
+        android:id="@+id/tvTableLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_table"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <Spinner
+        android:id="@+id/spinnerTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:minHeight="48dp"
+        android:visibility="gone" />
+
+    <!-- Sélection du serveur -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sélectionner un serveur"
+        android:layout_marginTop="8dp"
+        android:text="@string/select_server"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -19,11 +39,12 @@
         android:layout_marginTop="8dp"
         android:minHeight="48dp" />
 
+    <!-- Sélection du service -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Sélectionner le service"
+        android:text="@string/select_service"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -50,11 +71,12 @@
 
     </RadioGroup>
 
+    <!-- Sélection de la date -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Date"
+        android:text="@string/date"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -64,6 +86,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         style="@style/Widget.Material3.Button.OutlinedButton"
-        android:text="Sélectionner la date" />
+        android:text="@string/select_date" />
 
 </LinearLayout>

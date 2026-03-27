@@ -10,7 +10,7 @@
         android:id="@+id/tvPlatInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Proposer ce plat pour le service"
+        android:text="@string/propose_dish_for_service"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Service"
+        android:text="@string/service"
         android:textSize="14sp" />
 
     <RadioGroup
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         style="@style/Widget.Material3.Button.OutlinedButton"
-        android:text="Sélectionner la date" />
+        android:text="@string/select_date" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"

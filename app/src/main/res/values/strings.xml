@@ -62,4 +62,21 @@
     <string name="state_cleared">Débarrassé</string>
     <string name="yes">Oui</string>
     <string name="no">Non</string>
+
+    <!-- Additional strings -->
+    <string name="view_assignments">Visualiser les affectations</string>
+    <string name="date">Date</string>
+    <string name="service_midi">Midi</string>
+    <string name="service_soir">Soir</string>
+    <string name="tables_tab">Tables</string>
+    <string name="affectations_tab">Affectations</string>
+    <string name="dish_number">Numéro du plat</string>
+    <string name="propose_dish_for_service">Proposer ce plat pour le service</string>
+    <string name="service">Service</string>
+    <string name="select_date">Sélectionner la date</string>
+
+    <!-- Dialog Affectation -->
+    <string name="select_table">Sélectionner une table</string>
+    <string name="select_server">Sélectionner un serveur</string>
+    <string name="select_service">Sélectionner le service</string>
 </resources>
